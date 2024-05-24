@@ -18,14 +18,15 @@ const clickMe = () => {
 };
 
 const submitForm = () => {
-    let formData = {};
-    formData.first_name = $('#first_name').val();
-    formData.last_name = $('#last_name').val();
-    formData.password = $('#password').val();
-    formData.email = $('#email').val();
+    let formData = {
+        first_name: $('#first_name').val().trim(),
+        last_name: $('#last_name').val().trim(),
+        password: $('#password').val().trim(),
+        email: $('#email').val().trim()
+    };
 
     // Basic form validation
-    if (formData.first_name.trim() === '' || formData.last_name.trim() === '' || formData.password.trim() === '' || formData.email.trim() === '') {
+    if (Object.values(formData).some(val => val === '')) {
         alert('Please fill in all fields.');
         return; // Prevent form submission if any field is empty
     }
@@ -43,7 +44,7 @@ const submitForm = () => {
 
 const addCards = (items) => {
     items.forEach(item => {
-        let itemToAppend = `<div class="col s4 center-align">
+        const itemToAppend = `<div class="col s4 center-align">
             <div class="card medium">
                 <div class="card-image waves-effect waves-block waves-light">
                     <img class="activator materialboxed materialboxed-image" src="${item.image}">
