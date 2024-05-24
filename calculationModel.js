@@ -1,4 +1,3 @@
-// models/calculationModel.js
 const calculationModel = {
     addNumbers: (num1, num2) => {
         return num1 + num2;
