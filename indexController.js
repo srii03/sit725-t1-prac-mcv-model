@@ -1,9 +1,9 @@
-// controllers/indexController.js
 const calculationModel = require('../models/calculationModel');
+const indexView = require('../views/indexView');
 
 const indexController = {
     getIndexPage: (req, res) => {
-        res.sendFile(__dirname + '/../public/index.html');
+        indexView.renderIndexPage(req, res);
     },
     addTwoNumbers: (req, res) => {
         const value1 = parseInt(req.query.num1);
