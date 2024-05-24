@@ -1,7 +1,8 @@
-// views/indexView.js
+const path = require('path');
+
 const indexView = {
-    renderIndexPage: (res) => {
-        res.sendFile(__dirname + '/../public/index.html');
+    renderIndexPage: (req, res) => {
+        res.sendFile(path.join(__dirname, '../public/index.html'));
     }
 };
 
